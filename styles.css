@@ -457,6 +457,51 @@ nav ul li a.active {
 }
 
 /* =====================
+   QR CODE SECTION
+   ===================== */
+.qr-section {
+  padding: 5rem 1.5rem;
+  background: var(--espresso);
+  text-align: center;
+}
+
+.qr-section h2 {
+  font-size: 1.8rem;
+  color: var(--warm-tan);
+  margin-bottom: 0.6rem;
+}
+
+.qr-section > .container > p {
+  color: var(--cream);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.qr-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--cream);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.qr-wrapper img {
+  display: block;
+  border-radius: 4px;
+}
+
+.qr-url {
+  font-size: 0.8rem;
+  color: var(--mocha);
+  letter-spacing: 0.04em;
+  font-family: monospace;
+}
+
+/* =====================
    FOOTER
    ===================== */
 footer {
