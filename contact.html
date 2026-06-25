@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – New Home International</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">New Home International</div>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you</p>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+
+      <div class="contact-info">
+        <h2>Get In Touch</h2>
+        <p>Whether you have a question about a product, need advice on furnishing a space, or want to discuss a project — our team is here to help.</p>
+
+        <div class="contact-detail">
+          <span class="icon">&#128205;</span>
+          <div>
+            <strong>Address</strong><br />
+            Placeholder Address, City, Country
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="icon">&#128222;</span>
+          <div>
+            <strong>Phone</strong><br />
+            +44 000 000 0000
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="icon">&#128140;</span>
+          <div>
+            <strong>Email</strong><br />
+            hello@newhomeinternational.com
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="icon">&#128336;</span>
+          <div>
+            <strong>Opening Hours</strong><br />
+            Monday – Saturday: 9am – 6pm<br />
+            Sunday: Closed
+          </div>
+        </div>
+
+        <div class="placeholder-box" style="margin-top: 2rem; text-align: left;">
+          Map embed and full contact details coming soon.
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <h2 style="color: var(--espresso); margin-bottom: 0.5rem;">Send a Message</h2>
+        <p style="color: #777; margin-bottom: 0.5rem; font-size: 0.9rem;">We'll get back to you within 1–2 business days.</p>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your message…" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+        <p id="form-msg" style="color: var(--mocha); font-size: 0.9rem; display: none;">Thank you! We'll be in touch soon.</p>
+      </form>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 New Home International. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-msg').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
