@@ -396,6 +396,17 @@ nav a.active {
   z-index: 1;
 }
 
+/* Hero background video */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.45;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -589,6 +600,15 @@ nav a.active {
     rgba(201,168,76,0.06) 0%,
     transparent 50%,
     rgba(201,168,76,0.03) 100%);
+}
+
+.about-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .about-image-label {
@@ -802,6 +822,8 @@ nav a.active {
 .project-bg {
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
   transition: transform var(--transition-slow);
 }
 
@@ -1305,6 +1327,8 @@ footer {
 .gallery-img {
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
   transition: transform var(--transition-slow);
 }
 
@@ -1326,27 +1350,35 @@ footer {
 .gallery-overlay h4 { font-size: 0.92rem; color: var(--ivory); margin-bottom: 4px; }
 .gallery-overlay span { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 
-/* Gallery placeholder gradients */
-.gal-1  { background: linear-gradient(135deg, #1a0f07 0%, #2e1d0e 100%); }
-.gal-2  { background: linear-gradient(135deg, #0a1020 0%, #1a2540 100%); }
-.gal-3  { background: linear-gradient(135deg, #0f1a0f 0%, #1e351e 100%); }
-.gal-4  { background: linear-gradient(135deg, #1a0a0a 0%, #351515 100%); }
-.gal-5  { background: linear-gradient(135deg, #1a1a0a 0%, #35350f 100%); }
-.gal-6  { background: linear-gradient(135deg, #100f1a 0%, #201e35 100%); }
-.gal-7  { background: linear-gradient(135deg, #1a0f14 0%, #2e1520 100%); }
-.gal-8  { background: linear-gradient(135deg, #0a1a14 0%, #142e20 100%); }
-.gal-9  { background: linear-gradient(135deg, #1a1208 0%, #2e2010 100%); }
-.gal-10 { background: linear-gradient(135deg, #0f0a1a 0%, #1e142e 100%); }
-.gal-11 { background: linear-gradient(135deg, #1a0808 0%, #301010 100%); }
-.gal-12 { background: linear-gradient(135deg, #081a10 0%, #103020 100%); }
-.gal-13 { background: linear-gradient(135deg, #181210 0%, #2e201a 100%); }
-.gal-14 { background: linear-gradient(135deg, #0a0f1a 0%, #121e35 100%); }
-.gal-15 { background: linear-gradient(135deg, #1a1500 0%, #2e2500 100%); }
-.gal-16 { background: linear-gradient(135deg, #140a1a 0%, #22122e 100%); }
-.gal-17 { background: linear-gradient(135deg, #0a1a0a 0%, #0e2e0e 100%); }
-.gal-18 { background: linear-gradient(135deg, #1a0e0a 0%, #2e1e12 100%); }
-.gal-19 { background: linear-gradient(135deg, #0a0a1a 0%, #12122e 100%); }
-.gal-20 { background: linear-gradient(135deg, #1a1005 0%, #2e1e08 100%); }
+/* Gallery real images */
+.gal-1  { background-image: url("Images/0037dd51-eb7c-4601-879d-a8ddceec9b0c.JPG"); }
+.gal-2  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM.jpeg"); }
+.gal-3  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM (1).jpeg"); }
+.gal-4  { background-image: url("Images/2ab3384d-240e-499d-8cc2-dca5af7a8de9.JPG"); }
+.gal-5  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (4).jpeg"); }
+.gal-6  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM (2).jpeg"); }
+.gal-7  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (1).jpeg"); }
+.gal-8  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (3).jpeg"); }
+.gal-9  { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.53 PM.jpeg"); }
+.gal-10 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.51 PM.jpeg"); }
+.gal-11 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.51 PM (1).jpeg"); }
+.gal-12 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM.jpeg"); }
+.gal-13 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (2).jpeg"); }
+.gal-14 { background-image: url("Images/220b6f0c-168a-41f1-b4e3-698859e11504.JPG"); }
+.gal-15 { background-image: url("Images/0037dd51-eb7c-4601-879d-a8ddceec9b0c.JPG"); }
+.gal-16 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM.jpeg"); }
+.gal-17 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM (1).jpeg"); }
+.gal-18 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (4).jpeg"); }
+.gal-19 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (1).jpeg"); }
+.gal-20 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.53 PM.jpeg"); }
+
+/* Featured project real images */
+.proj-bg-1 { background-image: url("Images/0037dd51-eb7c-4601-879d-a8ddceec9b0c.JPG"); }
+.proj-bg-2 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM (1).jpeg"); }
+.proj-bg-3 { background-image: url("Images/2ab3384d-240e-499d-8cc2-dca5af7a8de9.JPG"); }
+.proj-bg-4 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (4).jpeg"); }
+.proj-bg-5 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.50 PM (2).jpeg"); }
+.proj-bg-6 { background-image: url("Images/WhatsApp Image 2026-06-25 at 1.23.52 PM (1).jpeg"); }
 
 /* ============================================================
    21. SERVICES DETAIL PAGE STYLES
@@ -1429,24 +1461,40 @@ footer {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-sm);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
 }
 
 .ba-before {
-  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
-  color: var(--text-muted);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
+.ba-before .ba-label {
+  background: rgba(0,0,0,0.6);
+  color: var(--text-muted);
+}
+
 .ba-after {
-  background: linear-gradient(135deg, #1a1208 0%, #2a1e0c 100%);
-  color: var(--gold);
   border: 1px solid var(--gold-border);
+}
+
+.ba-after .ba-label {
+  background: rgba(0,0,0,0.6);
+  color: var(--gold);
 }
 
 /* Authorized supplier badge */
