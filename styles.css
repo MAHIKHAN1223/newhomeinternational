@@ -1811,4 +1811,41 @@ footer {
   .cta-banner .btn-group { flex-direction: column; align-items: center; }
   .cta-banner .btn-dark,
   .cta-banner .btn-outline-dark { width: 100%; justify-content: center; }
+
+  .qr-card-canvas { max-width: 280px; }
+}
+
+/* ============================================================
+   QR DOWNLOADABLE CARD
+   ============================================================ */
+.qr-card-section {
+  background: #0d0d0d;
+  padding: 88px 0 100px;
+  text-align: center;
+}
+
+.qr-card-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 52px;
+}
+
+.qr-card-canvas {
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 16px 64px rgba(0,0,0,0.75), 0 0 0 1px rgba(201,168,76,0.25);
+}
+
+.qr-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+  justify-content: center;
+  cursor: pointer;
 }

@@ -119,6 +119,31 @@
       </div>
     </section>
 
+
+    <!-- ============================================================
+         QR DOWNLOADABLE CARD
+         ============================================================ -->
+    <section class="qr-card-section">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-tag">Take Us With You</span>
+          <h2 class="section-title" style="color:var(--gold);">Download Our QR Card</h2>
+          <hr class="gold-line centered" />
+          <p style="color:var(--text-muted); max-width:500px; margin:0 auto;">Save to your phone or print it &mdash; share our website instantly by scanning the code.</p>
+        </div>
+
+        <div class="qr-card-preview-wrap reveal">
+          <canvas id="qrCardCanvas" class="qr-card-canvas"></canvas>
+          <a class="btn btn-gold qr-download-btn" id="downloadQRCard" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Card
+          </a>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- ============================================================
@@ -174,5 +199,146 @@
 
   <script src="nav.js"></script>
   <script src="animations.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+  (function () {
+    var SITE_URL = 'https://mahikhan1223.github.io/newhomeinternational/';
+
+    /* 1 — Render QR into a hidden offscreen div */
+    var qrHolder = document.createElement('div');
+    qrHolder.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:400px;height:400px;';
+    document.body.appendChild(qrHolder);
+    new QRCode(qrHolder, {
+      text: SITE_URL,
+      width: 400, height: 400,
+      colorDark: '#1a1a1a', colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    /* 2 — Draw the branded card onto the visible canvas */
+    function drawCard() {
+      var qrEl = qrHolder.querySelector('canvas') || qrHolder.querySelector('img');
+      var canvas = document.getElementById('qrCardCanvas');
+      if (!canvas || !qrEl) return;
+
+      var W = 750, H = 1060;
+      canvas.width  = W;
+      canvas.height = H;
+      var c = canvas.getContext('2d');
+
+      /* Background */
+      var bg = c.createLinearGradient(0, 0, 0, H);
+      bg.addColorStop(0, '#111118');
+      bg.addColorStop(1, '#1a1810');
+      c.fillStyle = bg; c.fillRect(0, 0, W, H);
+
+      /* Subtle horizontal lines texture */
+      c.strokeStyle = 'rgba(201,168,76,0.03)';
+      c.lineWidth = 1;
+      for (var i = 0; i < H; i += 5) {
+        c.beginPath(); c.moveTo(0, i); c.lineTo(W, i); c.stroke();
+      }
+
+      /* Outer gold border */
+      c.strokeStyle = '#c9a84c'; c.lineWidth = 2.5;
+      c.strokeRect(14, 14, W - 28, H - 28);
+
+      /* Inner hairline border */
+      c.strokeStyle = 'rgba(201,168,76,0.2)'; c.lineWidth = 1;
+      c.strokeRect(22, 22, W - 44, H - 44);
+
+      /* Top + bottom gold bars */
+      c.fillStyle = '#c9a84c';
+      c.fillRect(14, 14, W - 28, 4);
+      c.fillRect(14, H - 18, W - 28, 4);
+
+      /* Corner diamonds */
+      function diamond(cx, cy, s) {
+        c.save(); c.translate(cx, cy); c.rotate(Math.PI / 4);
+        c.fillStyle = '#c9a84c';
+        c.fillRect(-s / 2, -s / 2, s, s);
+        c.restore();
+      }
+      diamond(14, 14, 9); diamond(W - 14, 14, 9);
+      diamond(14, H - 14, 9); diamond(W - 14, H - 14, 9);
+
+      /* Company name */
+      c.fillStyle = '#c9a84c';
+      c.font = 'bold 46px Georgia, "Times New Roman", serif';
+      c.textAlign = 'center'; c.textBaseline = 'middle';
+      c.fillText('New Home International', W / 2, 105);
+
+      /* Tagline */
+      c.fillStyle = 'rgba(201,168,76,0.58)';
+      c.font = '300 20px Arial, sans-serif';
+      c.fillText('Premium Furnishing & Interior Solutions', W / 2, 154);
+
+      /* Ornamental centre divider */
+      var oy = 195;
+      c.strokeStyle = 'rgba(201,168,76,0.3)'; c.lineWidth = 1;
+      c.beginPath(); c.moveTo(130, oy); c.lineTo(W / 2 - 16, oy); c.stroke();
+      c.beginPath(); c.moveTo(W / 2 + 16, oy); c.lineTo(W - 130, oy); c.stroke();
+      diamond(W / 2, oy, 8);
+
+      /* QR code — white rounded box */
+      var qrSize = 390, qrX = (W - qrSize) / 2, qrY = 226, pad = 22, r = 16;
+      var bx = qrX - pad, by = qrY - pad, bw = qrSize + pad * 2, bh = qrSize + pad * 2;
+      c.beginPath();
+      c.moveTo(bx + r, by);
+      c.lineTo(bx + bw - r, by); c.quadraticCurveTo(bx + bw, by, bx + bw, by + r);
+      c.lineTo(bx + bw, by + bh - r); c.quadraticCurveTo(bx + bw, by + bh, bx + bw - r, by + bh);
+      c.lineTo(bx + r, by + bh); c.quadraticCurveTo(bx, by + bh, bx, by + bh - r);
+      c.lineTo(bx, by + r); c.quadraticCurveTo(bx, by, bx + r, by);
+      c.closePath();
+      c.fillStyle = '#ffffff'; c.fill();
+      c.drawImage(qrEl, qrX, qrY, qrSize, qrSize);
+
+      /* Scan label */
+      c.fillStyle = '#c9a84c';
+      c.font = 'bold 24px Georgia, serif';
+      c.fillText('Scan to Visit Our Website', W / 2, qrY + qrSize + pad + 50);
+
+      /* URL hint */
+      c.fillStyle = 'rgba(255,255,255,0.3)';
+      c.font = '15px Arial, sans-serif';
+      c.fillText(SITE_URL, W / 2, qrY + qrSize + pad + 80);
+
+      /* Contact divider */
+      var dy = qrY + qrSize + pad + 116;
+      c.strokeStyle = 'rgba(201,168,76,0.22)'; c.lineWidth = 1;
+      c.beginPath(); c.moveTo(80, dy); c.lineTo(W - 80, dy); c.stroke();
+
+      /* Contact details */
+      c.fillStyle = 'rgba(255,255,255,0.8)';
+      c.font = '400 21px Arial, sans-serif';
+      c.fillText('+968 99352540', W / 2, dy + 50);
+
+      c.fillStyle = 'rgba(255,255,255,0.5)';
+      c.font = '400 18px Arial, sans-serif';
+      c.fillText('info@newhomeinternational.com', W / 2, dy + 86);
+      c.fillText('Muscat, Sultanate of Oman', W / 2, dy + 120);
+
+      /* Sponsor line */
+      c.fillStyle = 'rgba(201,168,76,0.4)';
+      c.font = '300 16px Arial, sans-serif';
+      c.fillText('Sponsored by Mohammad Jamil SPC', W / 2, H - 55);
+
+      /* 3 — Wire up the download button */
+      var btn = document.getElementById('downloadQRCard');
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var link = document.createElement('a');
+          link.download = 'NewHomeInternational-QR-Card.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        });
+      }
+    }
+
+    /* QRCode.js renders async in canvas mode — short delay covers it */
+    setTimeout(drawCard, 250);
+  })();
+  </script>
 </body>
 </html>
