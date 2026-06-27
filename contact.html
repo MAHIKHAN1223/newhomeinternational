@@ -298,13 +298,8 @@
       c.font = 'bold 24px Georgia, serif';
       c.fillText('Scan to Visit Our Website', W / 2, qrY + qrSize + pad + 50);
 
-      /* URL hint */
-      c.fillStyle = 'rgba(255,255,255,0.3)';
-      c.font = '15px Arial, sans-serif';
-      c.fillText(SITE_URL, W / 2, qrY + qrSize + pad + 80);
-
       /* Contact divider */
-      var dy = qrY + qrSize + pad + 116;
+      var dy = qrY + qrSize + pad + 80;
       c.strokeStyle = 'rgba(201,168,76,0.22)'; c.lineWidth = 1;
       c.beginPath(); c.moveTo(80, dy); c.lineTo(W - 80, dy); c.stroke();
 
