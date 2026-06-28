@@ -1645,20 +1645,10 @@ footer {
 .map-placeholder {
   width: 100%;
   aspect-ratio: 4 / 2.5;
-  background: var(--charcoal);
   border-radius: var(--radius-md);
   border: 1px solid var(--gold-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 28px;
-}
-
-.map-placeholder span {
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  overflow: hidden;
 }
 
 .contact-social { display: flex; gap: 10px; margin-top: 24px; }
